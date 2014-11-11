@@ -1,0 +1,74 @@
+10/16/14
+Pixhawk/folding prop test
+location: Richmond point field
+
+goals: 
+validate folding prop - works
+evaluate efficiency (track voltage and current in cruise condition)
+15.3 7.5 amps cruise 13.5 m/s 
+
+changed cruise throttle to 65, cruise speed about 16 m/s @ 10 amps
+
+changed cruise throttle to 75% 
+cruise speed 17.5 @ 13-14 amps
+
+validate gains for pixhawk - current values works great, holding alt fairly well
+
+validate pixhawk auto mission - works
+
+
+landed in stabilize, thinks its 12.5m above ground when its maybe -1 below launch
+
+propeller survived 
+
+
+optional: 
+pid tuning
+evaluate endurance
+test auto landing
+
+
+did 2 flights.
+
+flight 1:
+validated the propeller
+changed desired cruised throttle to see different power consumptions
+
+flight 2:
+tested 
+
+
+10/27/2014
+test objectives:
+dual launch hooks
+airspeed sensor, validate operations. whats the ground alt once the plane lands?
+endurance test
+test if raising min speed would speed up the plane. (this would validate the plane will maintain min speed in windy conditions)
+cruise throttle to be 47% --> 15m/s?
+tune out whobbles in the air
+
+Test 1: auto take off with dual hooks
+89km planned
+MIN_GNDSPD_CM = 700cm/s
+
+to do:
+SAVE PARAMS, date it!
+change this to 17 and see if this affects aircraft speed.
+monitor and tune gains
+monitor power
+
+try flying with 24 amps and see how the climb rate is. 
+
+
+
+landing: decend 5m/s   or 12degrees
+100/5 = 20 , 20*20 400 meters
+
+12 degrees
+
+tan(12)= 100/x ~ 500 meters
+
+ARSPD_AUTOCAL = 1 , leave for 5 mins then change to 0
+
+to do: change arspd_autocal to 0
+do some calculations and 

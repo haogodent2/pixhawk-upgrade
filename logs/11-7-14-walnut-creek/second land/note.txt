@@ -1,0 +1,20 @@
+throttle turned off early, did not pitch up at all?
+
+chang pitch cdegree to 300
+
+change land to 800 meters out for 120 meters
+
+tan(x)= 120/800  8.5 degrees
+
+
+tan(10) = 100/x
+
+x =100/tan(10)
+
+700? compensate for lag on land
+
+throttle went up after landing, why? 
+15m/s landing speed was pretty good
+
+
+lesson learned, elevons need to be harder, control horns need to  be clamping type

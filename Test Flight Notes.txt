@@ -1,0 +1,131 @@
+10/16/14
+Pixhawk/folding prop test
+location: Richmond point field
+
+goals: 
+validate folding prop - works
+evaluate efficiency (track voltage and current in cruise condition)
+15.3 7.5 amps cruise 13.5 m/s 
+
+changed cruise throttle to 65, cruise speed about 16 m/s @ 10 amps
+
+changed cruise throttle to 75% 
+cruise speed 17.5 @ 13-14 amps
+
+validate gains for pixhawk - current values works great, holding alt fairly well
+
+validate pixhawk auto mission - works
+
+
+landed in stabilize, thinks its 12.5m above ground when its maybe -1 below launch
+
+propeller survived 
+
+
+optional: 
+pid tuning
+evaluate endurance
+test auto landing
+
+
+did 2 flights.
+
+flight 1:
+validated the propeller
+changed desired cruised throttle to see different power consumptions
+
+flight 2:
+tested 
+
+
+
+10/24/2014
+test objectives:
+dual launch hooks
+airspeed sensor, validate operations. whats the ground alt once the plane lands?
+endurance test
+test if raising min speed would speed up the plane. (this would validate the plane will maintain min speed in windy conditions)
+cruise throttle to be 47% --> 15m/s?
+tune out whobbles in the air
+
+Test 1: auto take off with dual hooks
+89km planned
+MIN_GNDSPD_CM = 700cm/s
+
+to do:
+change this to 17 and see if this affects aircraft speed. yes this works
+monitor and tune gains
+
+
+10/29/14 test flights
+skip gyro calc = 1
+change arspd_cal = 0
+cruise 45% throttle, 13m/s
+change fbw_min_spd to 10 m/s
+max throttle 90%
+
+
+gain tune
+landing tests
+
+landing pattern: 
+alignment point to start decend point: 200 meters
+start decend point to 0 ground point 541 meters
+land point 65 meters
+
+540 120
+
+tan12 = 0.212
+100/x = 471.7 meters
+
+first land test failed, not decending fast enough
+change land airspeed and sink rate
+also change fbw min airspeed, too slow caused stall
+
+change flight speed to 15 and min airspeed to 12
+
+second land failed, went too far
+
+third try, increase sink rate, reduce flare alt to 5, reduce flare time to 2 seconds
+change flare alt to 5 and flare time to 6.
+
+seems to be working okay except for the fact that the plane goes full throttle when landing. change land air speed to lower value perhaps would help
+
+
+
+11/7/14 court ln walnut creek
+objectives : gain tuning
+landing
+
+tecs_land_arspd = -1
+TECS_LAND_THR - set to 0
+TECS_LAND_SPDWGT
+TECS_LAND_SINK = 0.5
+TECS_TECS_LAND_TCONST = 2
+
+not using airspeed for final landing at this moment
+
+
+thr to pitch a little high
+
+
+11/10/14
+
+params: 
+auto tune
+PTCH2SRV_RLL
+
+put into circle to tune ptch2srv_rll
+re calibrate airspeed sensor
+check TRIM_THROTTLE
+
+if height osscilates increase TECS_PTCH_DAMP  by 0.1
+TECS_THR_DAMP
+and increase TECS_TIME_CONST by 1
+TECS_INTEG_GAIN 
+TECS_RLL2THR 
+
+check integerator gains 
+
+
+change land pitch back to 100 from 300
