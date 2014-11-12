@@ -129,3 +129,6 @@ check integerator gains
 
 
 change land pitch back to 100 from 300
+
+11-11-14
+land flare sec to 10, moved land farther away
