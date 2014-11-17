@@ -132,3 +132,105 @@ change land pitch back to 100 from 300
 
 11-11-14
 land flare sec to 10, moved land farther away
+
+
+11/14/14
+1:
+first test flight successful
+12 flare
+5 seconds
+- 3 degree flare 
+550 wp to land
+135 m overshoot
+
+2:
+next try flare at 
+8 instead. 
+3 seconds
+15 degree climb out
+landed 140 m overshoot
+triggered time first
+
+3:
+next try 
+flare at 5
+time at 2
+overshot by 100 meters
+
+4:
+next try 
+flare at 3
+time at 2
+tecs_land_arspd = 13 from 12
+overshot by 230 meters, pretty far!
+
+5:
+try tecs_land_arspd = 11
+tecs_land_sink = 1
+overshot by 150 meters
+
+6:
+try tecs_land_arspd = 12
+tecs_land_sink = 1
+flare at 5
+time at 4
+118m overshoot
+
+7:
+try the same again
+94 meter overshoot
+
+8: 
+try the same again
+120 m overshoot
+
+9th: 
+a little too fast on landing
+push land pitch to -1 degree instead
+180m
+
+10th:
+flare at 3 meters
+flare at 2 seconds
+overshoot 115 meters
+
+11th:
+do the same
+with -3degree
+overshot by 200 meters
+wind directions changing
+
+12th:
+same setup
+overshoot 146 meters
+
+13th:
+156 meters overshoot
+
+14th:
+141 meter overshoot
+
+15th:
+200 meter overshoot
+crosswind involved
+
+16th:
+200 meters overshoot
+
+17th:
+reverse land direction with same params
+561 out
+100 sideways for alignment
+210 meter overshoot
+
+
+
+
+
+
+
+
+
+
+
+
