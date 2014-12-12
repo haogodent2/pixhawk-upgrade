@@ -1,0 +1,6 @@
+8 degrees approach
+10m flare
+4 seconds flare
+only 1 landing point, no extra
+landspd 17 m/s
+

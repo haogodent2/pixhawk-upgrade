@@ -217,16 +217,557 @@ crosswind involved
 16th:
 200 meters overshoot
 
-17th:
+18th:
 reverse land direction with same params
 561 out
 100 sideways for alignment
 210 meter overshoot
 
 
+test: 
+param: tecs_integ_gain, increase to reduce offset
+flare alt: 0m 
+
+
+tan(10) = 20/x
+x = 20/tan(10)
+x =113m
+
+landed 77m off land wp
+
+
+flight 2 303: throttle dampen 0.8
+overshot by 120 then skipped for 50 more
+
+flight 3:
+turn off gyro calibration
+turn off arspd callibration
+land pattern
+flare alt changed to 1
+overshot 200 meters
+with extra wp the landing just lagged. 
+
+
+flight4: 
+without extra wp watch alt error
+
+what if i put a wp at 10 meter instead
+@ 57 meter from land wp
+set land flare alt to 0
+
+flight 5:
+try setting wp 4 at 5 meters
+
+
+flight 6:
+try 300 again with original landing pattern
 
 
 
+11/24/14
+tasks:
+tune airspeed sensor
+auto tune gains
+try same landing pattern again, watch approach profile
+
+tune airspeed sensor
+auto tune gains
+try same landing pattern again, watch approach profile
+
+gains to check: 
+TECS_TIME_CONST 
+TECS_INTEG_GAIN
+
+airspeed tuned,
+gains tuned
+try landing
+overshot by 220 meters
+pitch oscilations, reduce d gain and boost p gain
+
+3- overshot by 280
+
+8 degrees
+
+tan(8) = 100/x
+x = 100/tan(8)
+
+
+70 meter
+550
+0.127
+7.25 degree
+
+80 degree
+
+plane trying to hold airspeed so it doesnt decend as quickly
+
+
+good
+
+try wp at 10 meters
+8 degrees
+
+550-70 = 480 bad result, a little fast, didn't track
+
+
+back to 8 degree approach
+tan 8 = 80/x
+
+tan 8 = 0.14
+
+tan 8 = 10/x
+
+tan 8 = 72
+
+
+land good at 8degree with 8m wp  - extrapolate 8 degrees all the way
+off land wp by 60 meters
+
+next land with wp 100 meters off from last wp, overshot by 50 meters
+
+8 degrees, 515 meters, to 8 m up wp
+
+land 9 offshoot by 100 meters from land wp
+
+
+10 landed right on the spot is this good?
+
+arspd calibration 1.13 for 303 seems to do the trick
+
+
+
+last land with 300 undershoot bad
+
+
+11-25-14 
+objective: something that works
+
+dont skip gyro
+do airspeed sensor calibration
+try auto land
+
+land tecs arspd 17
+land arspd weight tecs 0.75
+TECS_LAND_SINK = 1
+land pattern
+
+8 degrees approach seems good
+
+stanford calc
+
+100 to 8 at 8 degrees
+tan(8) = 92/x
+x = 92/0.1405
+x = 655 meters
+
+100 to 10 at 8 degrees
+tan(8) = 90/x
+x = 90/0.1405
+x = 640.5 meters
+
+x 50
+640 90 m
+
+100 to 8 at 10 degree
+tan(10) = 0.176
+x = 522
+
+tree line 150 m from 8m wp
+plane height at tree line
+tan8 = h/150
+h = 150*0.1405
+h = 21 meters
+
+
+x = 100/0.1405
+
+land 3 
+plane taken over with right bank and throttle at the end, how?
+
+land 4 
+good, overshot 100m
+
+land 5 good right on
+
+land 6
+land alt flare 10
+flare angle -1
+flare second 4
+17m/s land speed
+overshot 50 meters, good!
+
+land 7
+same as 6
+overshot 32 meters
+
+
+land 8 30 meters short
+this is good
+
+
+plane 303 
+overshot by 130 meters
+
+
+plane 303 with different arspd sensor
+overshot by 80 meters
+
+
+plane 303 same flight
+
+
+plane 303 swap out arspd tube 
+no difference. landed exactly where it did previously
+
+another land
+overshoot 141 meters
+
+
+11-26-14
+vallejo
+try plane 301
+arspd calibration
+skip-gyro
+try new arspd mount
+
+tan(8) = 80/x
+x = 80/0.14054
+x = 570 meters
+
+
+first flight: 303
+calibrate new airspeed sensor position, initiate land
+arspd ratio is better now, but still overshot by 150
+
+
+second flight: 303
+recalibrate airspeed
+TECS_SINK_MIN = 1
+moved land spot slightly more south
+land_flare_alt = 5
+land_flare_sec = 2
+160m from landing wp final position
+first touch down around 80-90m from land wp
+
+third flight: same as previous
+145m overshoot
+
+fourth land:
+try new plane! 301
+auto tune airspeed for 5 mins
+after land, turn off gyro cal
+good landing
+
+fifth landing 301:
+same path, will it land in the same spot?
+close
+
+6th land good 301
+120 m overshoot
+
+7th land 301 overshoot 185 meters
+
+8th land from 100m up
+tan(8) = 100/x
+x = 100/0.14054
+x = 570 meters
+200 m off
+
+
+9th landing:
+land arspd 15m/s
+overshot 150 meters
+
+10th back to 301:
+same pattern, 100 meters out
+8 degree approach angle
+100 meters short
+a bit shorter than the other one. 
+used 17 arspd land
+
+11th 301
+15 m/s arspd land
+180 m too far, good! consistent to 303
+
+12th 301
+150 ish, good
+
+
+
+12/4/14
+gyro calc all planes
+set arspd ratio to 1.22 for all planes
+test land all planes
+skip gyro calc all planes
+test phone + plane 
+
+measure TECS_SINK_MIN 
+ask brent to read out the vertical speed while I fly throttle off 
+
+params: 
+TECS_LAND_SINK = 2
+try down to 20 meters with wp then  bias elevation by setting TECS_LAND_SPDWGT = 0.5
+tecs_land_arspd = 13
+TECS_SINK_MAX = 6
+TECS_PITCH_MAX,20
+TECS_PITCH_MIN,-25
+
+tan(10)= 0.176
+tan(10)=h/x
+
+h = 80
+x = 455 meters
+
+h = 20
+x = 114
+
+h = 30
+x = 171
+
+flight1:
+gyro calibration: check
+tecs_land_arspd = 13
+tecs_land_spdwgt = 0.5
+tecs_pitch_max 25
+tecs _pitch_min -25
+tecs pitch dampening 0.3
+
+
+arspd alto calibration stop
+arspd ratio 1.32
+
+check tecs sink min:
+-2
+check throttle cruise: 50%
+
+
+
+flight 2: 
+last wp at 5 m
+flare at -2 degree 
+
+h = 70
+x = 
+
+skip gyro calc
+servo pitch i 0.065
+
+land flare pitch -3
+tecs land spdwgt 
+
+h 60
+x = 341
+
+sink rate max 2.5
+at 18m/s
+
+h = 80
+x = 455
+
+try old stategy again
+wp at 5 
+
+h = 75
+x = 
+
+land 30 m up last wp
+about 5m difference right above land wp
+
+
+
+
+
+flight 300 plane:
+gyro calibration: check
+tecs_land_arspd = 13
+tecs_land_spdwgt = 0.5
+tecs_pitch_max 25
+tecs _pitch_min -25
+tecs pitch dampening 0.3
+arspd alto calibration stop
+arspd ratio 1.32
+tecs sink min:-2
+check throttle cruise: 50%
+land flare -500
+land flare sec 2
+land flare alt 5 m
+tecs land sink 2
+
+
+check these: 
+PTCH2SRV_I 
+
+
+12-5-14
+gyro calibrate
+gain tune
+test land
+
+try landing now with just land wp
+100 meters up, at 10 degrees
+10 degrees = 0.176
+
+tan(10)= 0.176
+tan(10)=h/x
+
+h = 80
+x = 455 meters
+
+
+
+0.1405
+h = 80
+x = 570
+
+flare 3meters at -100 pitch
+spdwgt land tecs = 0.5
+
+
+
+
+12-6-14
+
+8 degrees, 100 meters out
+tan(8) = h/100
+
+h = 15 m
+
+x = 180
+h = 
+
+0.1405
+
+
+changed 303 flare second to 1
+
+tecs_land_spdwgt = 1
+land flare alt 5
+land flare sec 6
+land flare pitch -500
+land weight 0.75
+
+
+
+
+12-7-14
+
+@150 meters, want 12degree descend, vertical?
+
+tan(12)=h/x
+h = tan(12)*150
+h = 31.8 meters
+
+
+h = 20
+
+20/tan(12)
+
+tan 12 = 0.21
+
+
+flight 1:
+put in the air, do rectangle, tune pitch gain, monitor pitch, servo1/2 output and arspd and stall tendency?
+
+put into the dive pattern and observe pitch vs nav_pitch
+disable arspd? up the mixing gain?
+
+220 to 70 in 440 meters
+
+tan(theta) = 150/440
+0.34
+18 degree dive
+
+
+220 to 90
+
+130 delta
+
+0.29 = tan(theta)
+
+
+theta = 10 degrees -- 0.176
+h = 120
+
+
+want a 10 degree pitch
+400 meters 70 difference
+
+
+
+10 degree land pattern from 100 meters
+x = 570
+
+overshoot 130 meters or so
+
+land 2:
+arspd calibration
+arspd = 1.35
+
+12 degree
+
+.21
+
+480
+
+previous roll values
+roll: 
+1.55
+0.075
+0.093
+
+
+12-8-14
+
+relevel with ahrs trim for 303, 301
+cut foam to relocate battery
+
+
+
+11-8-14
+
+to do:
+303: reload firmware, relevel with ahrs, cut foam for battery wire
+for 301: relevel with ahrs, cut foam
+
+300
+do pitch tune,
+do land
+download land, gain params
+
+303/301
+update values
+verify values
+do land 
+
+do phone based lands!
+
+
+300 tuning good! got pitch to track, needs way higher I gain!
+
+pitch 20 degree climbout!
+
+
+
+301, land flare at 1 meter, 1 second
+
+
+
+try fake wp with 301 and see what happens
+tecs spdwgt 0.75, 10m flare, 10sec flare
+
+stop prop spinning on 301 from esc
+
+flare sec and flare alt to 15
+
+
+
+303: LONG: 160, 130, 140 range ~ 30m
+
+301: SHORT: 65, 95, 90, range ~ 30m
+
+total range: 160, 65, 100
+
+center at (160+60)/2 ~ 110 +-50 from land wp. increase +- to 75
 
 
 

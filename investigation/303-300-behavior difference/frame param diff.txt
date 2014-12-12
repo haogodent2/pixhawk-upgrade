@@ -1,0 +1,10 @@
+300, 303
+shouldnt affect alt
+lim_roll_cd, 5000, 4500 , use 5000
+nav1_period, 15, 17 , use 17
+roll2srv_d, 0, 0.005, use 0.005
+tecs_thr_damp, 0.7, 0.8, use 0.7
+trim_throttle, 45, 55, use 45
+
+should affect alt
+land_flare_alt, 3, 0, use 3

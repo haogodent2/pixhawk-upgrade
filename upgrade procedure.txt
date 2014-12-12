@@ -1,0 +1,10 @@
+save apm params
+swap out apm for pixhawk (wiring, sensor...)
+modify hardware(wing joint, velcro, landing skid...)
+
+test flight: 
+arspd_auto_cal 1 first
+do loiter for 5 mins, then rectangle for 5 mins then auto land
+change arspd_auto_cal to 0
+
+
