@@ -775,3 +775,181 @@ center at (160+60)/2 ~ 110 +-50 from land wp. increase +- to 75
 
 
 
+1/6/15
+sr1_extra2/3 to 30 hz
+
+tune pitch controller to track and eliminate oscillation.  PID maybe?
+
+
+faster params to the local transciever
+
+
+tune TECS params
+
+THR_MAX, 25 degree takeoff, throttle for 15m/s?
+
+
+pitch limits:
+lim_pitch_max = 25deg
+lim_pitch_min = 4deg
+sink_rate_min = 
+
+vetical speed limits:
+tecs_climb_max = <7m/s
+tecs_sink_min = 
+
+20deg dive max
+
+
+
+tecs_time_const increase  by 1 for oscillation in air height, max 10
+
+tecs_ptch_damp increase by 0.1 for oscillation in air height ,max 0.5
+
+thr_slewrate
+
+tecs_thr_damp
+
+tecs_integ_gain
+
+Tecs_spdweight
+
+
+for 10 degrees
+tan10 = 0.176
+
+x = 450
+h = 80 m
+
+h = 100
+x = 570
+
+
+
+
+try interpolating many points and see how alt tracks
+
+x = 50 meters
+
+tan12 = 0.212
+x = 50
+h = 10.6
+
+
+
+tan8 = 0.14
+x = 300
+h = 42
+
+tan10
+h = 100
+x = 568
+
+
+
+tan16 = 0.287
+x = 25
+h = 7
+
+
+
+
+altitude tracking test with up and down patterns
+
+
+start fp from higher altitude, how is altitude tracking at 10 degrees?
+
+
+Height and speed control is all about compromise. If height tracking was the driving requirement, then you would
+a) tune the pitch loop with the largest D gain, largest P gain and smallest TAU possible without excessive overshoot or limit cycling
+
+b) Set TECS_SPDWEIGHT to 0
+
+c) Tune for the smallest possible TECS_TIME_CONST, using some TECS_PTCH_DAMP to control the overshoot
+If you did this you would have a plane that tracked height well, but with a lot of elevator and pitch activity in turbulence. This is the problem with slow flying models - they need significant amounts of pitch change to maintain altitude in vertical gusts. For camera payloads, this is not a desirable situation.
+
+
+
+
+
+arduplane 3.2
+
+pitched tuned to track decently, perhaps a bit oscillatory. 
+alt not tracking in descend. error is not trimmed out. tecs_int_gain at 0.5.  should I increase it?
+
+causes problem with auto land. overshoot by a huge amount.
+
+
+
+
+1-7-15
+
+up integrator gain in steps of 10x, see if that helps if not, test laser range finder and approximate landing patterns
+
+for 10 degrees
+tan10 = 0.176
+
+x = 450
+h = 80 m
+
+params to tune:
+time_const: 1 works okay, 6m alt offset for 10 degree descend
+try 0.5? oscillations observed, not too bad. lets try 0.1
+0.1 oscillation increased, no bueno 
+
+tecs_int_gain test 1,2,3
+
+10degree descend
+t: 1 int:1 okay 6m alt_error
+t: 1 int:2 oscillation
+t :3 int: 2 okay 6m alt_error, upward had some oscillation
+t: 3 int: 3 oscilltaion
+
+t 0.1 int:1 oscillation
+
+
+try forward cg by 1 inch
+changed mixing_gain to 0.7 from 0.5
+
+how does this change the alt_tracking behavior?
+
+
+land 10 degrees: 0.176
+x = 150
+h = 850 meters
+
+
+
+
+last wp to land 100 meters
+from 100m up x - 570 ish meters for 10m descend
+150 meter alignment before descend
+
+315 away, whats the height?
+
+8 degrees approach: 
+
+tan8 = 0.14
+x = 300
+h = 42
+
+tan12 = .212
+x = 300
+h = 62
+
+x = 410
+h = 86
+
+
+voltage divider 10.10337
+amp per volt 18.0018
+
+
+
+1/8/15
+
+flight 1 Tom landed, get used to the plane
+
+tan4 = 0.07
+x = 40
+h = 
